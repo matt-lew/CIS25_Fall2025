@@ -1,13 +1,7 @@
 # **Week 5**
 
-Week 5 assignment for loops (do-while). 
+Week 6 assignment for Save and Load files. 
 
-The user is presented with 3 menu options: Add, Multiply, or Exit. 
+The user is presented with 2 consecutive prompts. The first is for the Tool name. The second is for the Quantity of that tool.
 
-While the user chooses other than Exit, the menu stays displayed. 
-
-**1. Add** - If the user chooses the option to Add, they can input 2 numbers, the sum is displayed, and the menu is displayed.
-
-**2. Multiply** - If the user chooses the option to Multiply, they can input two numbers, the product is displayed, and the menu is displayed.
-
-**3. Exit** - If the user chooses the option to Exit, the loop finishes and the program ends.
+The name and quantity are saved to items.txt. Then items.txt is loaded and displayed to the user.
