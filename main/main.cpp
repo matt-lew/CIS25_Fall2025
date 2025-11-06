@@ -2,28 +2,51 @@
 //
 
 #include <iostream> 
+#include <fstream> 
+#include <string> 
 using namespace std;
-void showMenu() {
-	cout << "1. Add two numbers\n2. Multiply two numbers\n3. Exit\n";
-}
+
+class Item {
+public:
+	string name;
+	int quantity;
+    void saveToFile() {
+        ofstream out("items.txt");
+        if (out.is_open()) {
+            out << name << "," << quantity << endl;
+            out.close();
+            cout << "Item saved to file." << endl;
+        }
+        else {
+            cout << "Unable to open file for writing." << endl;
+        }
+    }
+
+    void loadFromFile() {
+        ifstream in("items.txt");
+        if (in.is_open()) {
+            string line;
+            while (getline(in, line)) {
+                cout << "File content: " << line << endl;
+            }
+            in.close();
+        }
+        else {
+            cout << "Unable to open file for reading." << endl;
+        }
+    }
+};
+
 int main() {
-	int option;
-	float n1, n2;
+    Item tool;
+    cout << "Enter the tool's name: ";
+    cin >> tool.name;
+    cout << "How many of that tool? ";
+    cin >> tool.quantity;
 
-	do {
-		showMenu();
-		cin >> option;
-		if (option == 1) {
-			cout << "Let's add two numbers\nEnter two numbers:\t";
-			cin >> n1 >> n2;
-			cout << (n1 + n2) << endl;
-		}
-		if (option == 2) {
-			cout << "Let's multiply two numbers\nEnter two numbers:\t";
-			cin >> n1 >> n2;
-			cout << (n1 * n2) << endl;
-		}
+    tool.saveToFile();
+    tool.loadFromFile();
 
-	} while (option != 3);
-	return 0;
+    return 0;
 }
+
