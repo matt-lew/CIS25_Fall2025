@@ -2,26 +2,78 @@
 //
 
 #include <iostream>
+#include <iomanip>
+#include <algorithm> // for sort
+#include <string> 
+#include <sstream>
 using namespace std;
+
+struct Item {
+    string name;
+    int id;
+};
+
+int binarySearch(Item* arr, int size, int targetId) {
+    int left = 0, right = size - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid].id == targetId)
+            return mid;
+        else if (arr[mid].id < targetId)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1;
+}
 
 int main()
 {
-    cout << "Hello Inventory System!\n";
-    cout << "\tData Types:\n";
-    cout << "Size of int:\t" << sizeof(int) << " bytes\n";
-    cout << "Size of float:\t" << sizeof(float) << " bytes\n";
-    cout << "Size of char:\t" << sizeof(char) << " bytes\n";
+    cout << "Dynamic Memory Allocation!\n";
+    
+    //make array
+    
+    int size = 1000;
+    Item* inventory = new Item[size];
+    
+    //populate array
+    for (int i = 0; i < size; ++i) {
+        std::stringstream ss;
+        ss << "Thing" << std::setw(4) << std::setfill('0') << (size - i);
+        //inventory[i].name = "Thing" + std::to_string(size - i);
+        inventory[i].name = ss.str();
+        inventory[i].id = 0 + i;
+        //cout << inventory[i].name << " " << inventory[i].id << endl; //show array as built
+    }
+
+    //sort array by name
+    
+    std::sort(inventory, inventory + size, [](const Item& a, const Item& b) {
+        return a.name < b.name;
+        });
+    for (int i = 0; i < size; ++i) {
+        //cout << inventory[i].name << " " << inventory[i].id << endl; //show array sorted by name
+    }
+
+    //re-sort by id in order to perform binary search
+    std::sort(inventory, inventory + size, [](const Item& a, const Item& b) {
+        return a.id < b.id;
+        });
+    
+    //search for ID
+    cout << "What ID would you like to see?\n";
+    int target;
+    cin >> target;
+    int n = binarySearch(inventory, size, target);
+    if (n != -1) {
+        cout << "Value found at ID: " << inventory[n].name << " " << inventory[n].id << endl;
+    }
+    else {
+        cout << "Item not found.\n";
+    }
+
+    delete[] inventory;
+
     return 0;
 
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
