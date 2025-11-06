@@ -1,41 +1,15 @@
-# **Student Project – Scope of Work (SOW)**
+# **Week 7**
 
-**Project Title:** Boids Simulation and Game  
-**Student Name:** Matt Lew  
-**Date:** November 5, 2025
+**Dynamic Memory Allocation** and **Binary Search**
 
----
+This program does several things to demonstrate dynamic memory allocation and binary searches.
 
-### **1\. Project Overview**
+First, an array is built and populated with 1000 entried. Thing1000 to Thing0001 with IDs in ascending order (1 to 1000). For instance, Thing0005 has an ID of 995.
 
-This project will implement a Boids simulation using C++. The program will model flocking behavior based on alignment, cohesion, and separation rules, and incorporate interactive game elements that allow users to influence or challenge the swarm dynamics.
+Next, the array is sorted by name. Thing0001 Thing0002 ... Thing0999 Thing1000.
 
-### **2\. Goals**
+Next the array is resorted by ID in order to perform the Binary Search.
 
-* Apply object-oriented programming principles to simulate autonomous agent behavior  
-* Implement real-time graphics and user interaction using a C++ graphics library (probably SFML)  
-* Explore emergent behavior through rule-based movement algorithms  
-* Create a playable experience that blends simulation with game mechanics
+The user is asked to enter an ID they would like to view, and its Name and ID are shown.
 
-### **3\. Deliverables**
-
-* Program files (main.cpp \+supporting files for Boid logic, rendering, and interaction)  
-* Output.pdf with screenshots, code explanations, and gameplay overview  
-* GitHub repository with organized file structure and README
-
----
-
-### **4\. Timeline**
-
-* Week 1–2: Define simulation rules & set up GitHub  
-* Week 3–4: Build Boid classes, implement movement logic, and render agents  
-* Week 5: Add game mechanics, test interactions, and debug  
-* Week 6: Write Output.pdf with visuals and documentation  
-* Week 7: Final review and submission of all deliverables
-
----
-
-### **5\. Success Criteria**
-
-The program runs smoothly, demonstrates realistic flocking behavior, includes interactive game features, and is submitted on time with complete documentations and a properly structured GitHub repository.
-
+Finally, the memory is cleared.
