@@ -2,78 +2,87 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <iomanip>
-#include <algorithm> // for sort
+//#include <algorithm> // for sort
 #include <string> 
-#include <sstream>
+//#include <sstream>
 using namespace std;
 
-struct Item {
-    string name;
-    int id;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    BankAccount() {
+        balance = 0.0;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Made a deposit of $" << balance << endl;
+        saveTransaction("Deposit", amount);
+    }
+
+    void makePurchase(string item, double cost) {
+        if (cost > balance) {
+            cout << "Insufficient funds for " << item << endl;
+        }
+        else {
+            balance -= cost;
+            cout << "Purchased " << item << endl;
+            saveTransaction("Purchase - " + item, cost);
+        }
+    }
+
+
+
+
+    void displayBalance() {
+        cout << std::fixed << std::setprecision(2);
+        cout << "Current Balance: $" << balance << endl;
+    }
+
+    void saveTransaction(string type, double amount) {
+        ofstream file("transactions.txt", ios::app);
+        if (file.is_open()) {
+            file << type << ": $" << amount << endl;
+            file.close();
+        }
+    }
 };
 
-int binarySearch(Item* arr, int size, int targetId) {
-    int left = 0, right = size - 1;
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid].id == targetId)
-            return mid;
-        else if (arr[mid].id < targetId)
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
-    return -1;
+void showMenu() {
+    cout << "~Welcome to Lew Bank terminal~\n1. Deposit $100.00 \n2. Purchase a Coffee ($4.50) \n3. Purchase a Book ($25.00) \n4. Display available Balance \n5. Exit\n\n";
 }
 
-int main()
-{
-    cout << "Dynamic Memory Allocation!\n";
+int main() {
     
-    //make array
-    
-    int size = 1000;
-    Item* inventory = new Item[size];
-    
-    //populate array
-    for (int i = 0; i < size; ++i) {
-        std::stringstream ss;
-        ss << "Thing" << std::setw(4) << std::setfill('0') << (size - i);
-        //inventory[i].name = "Thing" + std::to_string(size - i);
-        inventory[i].name = ss.str();
-        inventory[i].id = 0 + i;
-        //cout << inventory[i].name << " " << inventory[i].id << endl; //show array as built
-    }
+    BankAccount myAccount;
+    int option;
+    do {
+        showMenu();
+        cin >> option;
+        if (option == 1) {
+            myAccount.deposit(100.00);
+            myAccount.displayBalance();
+        }
+        if (option == 2) {
+            myAccount.makePurchase("Coffee", 4.50);
+            myAccount.displayBalance();
+        }
+        if (option == 3) {
+            myAccount.makePurchase("Book", 25.00);
+            myAccount.displayBalance();
+        }
+        if (option == 4) {
+            myAccount.displayBalance();
+        }
+    } while (option != 5);
 
-    //sort array by name
     
-    std::sort(inventory, inventory + size, [](const Item& a, const Item& b) {
-        return a.name < b.name;
-        });
-    for (int i = 0; i < size; ++i) {
-        //cout << inventory[i].name << " " << inventory[i].id << endl; //show array sorted by name
-    }
-
-    //re-sort by id in order to perform binary search
-    std::sort(inventory, inventory + size, [](const Item& a, const Item& b) {
-        return a.id < b.id;
-        });
     
-    //search for ID
-    cout << "What ID would you like to see?\n";
-    int target;
-    cin >> target;
-    int n = binarySearch(inventory, size, target);
-    if (n != -1) {
-        cout << "Value found at ID: " << inventory[n].name << " " << inventory[n].id << endl;
-    }
-    else {
-        cout << "Item not found.\n";
-    }
-
-    delete[] inventory;
 
     return 0;
-
 }

@@ -1,0 +1,76 @@
+Deposit: $100
+Purchase - Coffee: $4.5
+Purchase - Book: $25
+Deposit: $100
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Deposit: $100
+Deposit: $100
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Deposit: $100
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Deposit: $100
+Deposit: $100
+Deposit: $100
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Purchase - Book: $25
+Deposit: $100
+Purchase - Book: $25
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Purchase - Coffee: $4.5
+Deposit: $100
+Purchase - Book: $25
