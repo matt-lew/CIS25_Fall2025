@@ -6,11 +6,20 @@ using namespace std;
 
 int main()
 {
+    string itemName;
+    int quantity;
+    float cost;
+
     cout << "Hello Inventory System!\n";
-    cout << "\tData Types:\n";
-    cout << "Size of int:\t" << sizeof(int) << " bytes\n";
-    cout << "Size of float:\t" << sizeof(float) << " bytes\n";
-    cout << "Size of char:\t" << sizeof(char) << " bytes\n";
+    
+    cout << "Enter item name: \t";
+    cin >> itemName;
+    cout << "Enter quantity: \t";
+    cin >> quantity;
+    cout << "Enter cost: \t\t$";
+    cin >> cost;
+
+    cout << "Total cost for " << itemName << ": $" << (quantity * cost) << endl;
     return 0;
 
 }
