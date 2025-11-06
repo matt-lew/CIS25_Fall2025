@@ -14,4 +14,4 @@ This module showcases several C++ programming concepts in a midterm project as a
 * Transactions are recorded to transactions.txt
  
 ### **3\. Screenshots**
-* Cpp Midterm.pdf has screenshots of the program running and its full functionality on display.
+* screenshots.pdf has screenshots of the program running and its full functionality on display.
